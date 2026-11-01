@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Annur.Vita — онлайн-магазин натуральной продукции + ИИ-сотрудник</title>
+<meta name="description" content="Один каталог — два магазина: сайт и Telegram Mini App. Консультирует и оформляет заказы обученный ИИ-сотрудник. Доставка Яндексом по России и в страны Азии и Ближнего Востока.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg class="sprite" aria-hidden="true">
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M8 17v-6"/><path d="M13 17V7"/><path d="M18 17v-9"/></symbol>
+  <symbol id="i-jar" viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="13" rx="2"/><path d="M8 8V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v3"/><path d="M5 13h14"/></symbol>
+  <symbol id="i-tube" viewBox="0 0 24 24"><path d="M9 3h6v4H9z"/><path d="M9 7l-2 3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-9l-2-3"/><path d="M7 14h10"/></symbol>
+  <symbol id="i-tin" viewBox="0 0 24 24"><ellipse cx="12" cy="6.5" rx="8" ry="2.5"/><path d="M4 6.5V17c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5V6.5"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+  <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol>
+</svg>
+
+<header class="top wrap">
+  <a class="brand" href="#top"><svg class="ic"><use href="#i-leaf"/></svg>Annur.Vita<span class="proto">прототип</span></a>
+  <nav class="menu" aria-label="Разделы">
+    <a href="#how">Как устроено</a>
+    <a href="#shop">Витрина</a>
+    <a href="#tg">Telegram</a>
+    <a href="#ai">ИИ-сотрудник</a>
+    <a href="#admin">Админка</a>
+    <a href="#delivery">Доставка</a>
+  </nav>
+  <div class="top-actions">
+    <a class="btn btn-ink btn-sm" href="https://t.me/NoGodBut1" target="_blank" rel="noopener"><svg class="ic"><use href="#i-send"/></svg><span>Обсудить в Telegram</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero wrap">
+  <div class="hero-copy">
+    <p class="eyebrow"><i></i>Магазин натуральной продукции + ИИ-сотрудник</p>
+    <h1>Один каталог. Два магазина: сайт и&nbsp;Telegram. <span>Продаёт ИИ-сотрудник.</span></h1>
+    <p class="lead">Трафик ведёте куда удобно — на сайт или в Telegram. И там и там клиент видит один и тот же каталог, а на вопросы отвечает обученный ИИ-сотрудник: консультирует по товарам, собирает заказ и передаёт его в доставку. Вы только подтверждаете.</p>
+    <div class="actions">
+      <a class="btn btn-accent" href="#how">Как это устроено <svg class="ic"><use href="#i-arrow"/></svg></a>
+      <a class="textlink" href="#shop">Посмотреть витрину <svg class="ic"><use href="#i-arrow"/></svg></a>
+    </div>
+    <p class="footnote">Это интерактивный прототип: товары взяты из вашего канала, цены и сроки в примерах условные.</p>
+  </div>
+
+  <div class="hero-visual" aria-label="Переписка клиента с ИИ-сотрудником и карточка готового заказа">
+    <div class="phone">
+      <div class="tg">
+        <div class="tg-head">
+          <svg class="ic"><use href="#i-back"/></svg>
+          <span class="tg-ava">A</span>
+          <div><b>Annur.Vita</b><small>ИИ-сотрудник · онлайн</small></div>
+        </div>
+        <div class="tg-body">
+          <div class="msg in">Ассаляму алейкум! Крем со страусиным жиром Al Helal ещё есть?<time>14:02</time></div>
+          <div class="msg out">Ва-алейкум ассалям! Да, Al Helal 40 мл в наличии — 950 ₽, производство Саудовская Аравия. Один возьмёте?<time>14:02</time></div>
+          <div class="msg in">Два. И белый Tiger Cloud, который охлаждающий<time>14:03</time></div>
+          <div class="msg out">Два крема Al Helal и белый бальзам Tiger Cloud 19 г — итого 2 290 ₽. Куда доставить?<time>14:03</time></div>
+          <div class="msg in">Казань, Чистопольская 20<time>14:04</time></div>
+          <div class="msg out">По Казани повезёт Яндекс Доставка: завтра до 18:00, 250 ₽. Всего 2 540 ₽. Подтверждаете?<time>14:04</time></div>
+          <div class="msg in">Да<time>14:04</time></div>
+          <div class="msg out">Заказ №108 оформлен. Пришлю трек, как передадим курьеру.<time>14:04</time></div>
+        </div>
+        <div class="tg-input"><span>Сообщение</span></div>
+      </div>
+    </div>
+
+    <div class="float-card cab" aria-label="Карточка заказа у владельца">
+      <div class="fc-head"><span class="badge new">Новый</span><b>№108</b><span class="age"><svg class="ic"><use href="#i-clock"/></svg>только что</span></div>
+      <div class="fc-sum"><span><svg class="ic"><use href="#i-truck"/></svg>Яндекс · Казань</span><b>2 540 ₽</b></div>
+      <ul class="items">
+        <li><b>2×</b><span>Крем Al Helal, страусиный жир 40 мл</span></li>
+        <li><b>1×</b><span>Tiger Cloud, белый 19 г</span></li>
+      </ul>
+      <div class="fc-actions"><button class="ubtn dark" type="button"><svg class="ic"><use href="#i-check"/></svg>Принять</button><button class="ubtn outline" type="button">Отклонить</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= СХЕМА ================= -->
+<section class="section wrap" id="how">
+  <div class="section-head">
+    <p class="eyebrow">Как устроено</p>
+    <h2>Трафик с двух сторон. <span class="muted">Каталог и продавец — одни.</span></h2>
+    <p class="section-lead">Рекламу можно вести и на сайт, и в Telegram — клиент попадает в один и тот же магазин. Товар добавляется один раз и сразу виден везде, включая ИИ-сотрудника.</p>
+  </div>
+  <div class="flow" role="img" aria-label="Схема: трафик идёт на сайт и в Telegram, оба подключены к единому каталогу, продажи ведёт ИИ-сотрудник, заказы уходят в доставку">
+    <div class="frow one">
+      <div class="fnode soft"><b><svg class="ic"><use href="#i-megaphone"/></svg>Трафик и реклама</b><span>таргет · посты в канале · рекомендации · ссылки клиентам</span></div>
+    </div>
+    <div class="farr"><i><svg class="ic"><use href="#i-arrow"/></svg></i><i><svg class="ic"><use href="#i-arrow"/></svg></i></div>
+    <div class="frow">
+      <div class="fnode"><b><svg class="ic"><use href="#i-globe"/></svg>Веб-витрина</b><span>сайт-каталог: карточки, цены, корзина</span></div>
+      <div class="fnode"><b><svg class="ic"><use href="#i-send"/></svg>Telegram Mini App</b><span>тот же магазин внутри Telegram, без установки</span></div>
+    </div>
+    <div class="farr"><i><svg class="ic"><use href="#i-arrow"/></svg></i><i><svg class="ic"><use href="#i-arrow"/></svg></i></div>
+    <div class="frow one">
+      <div class="fnode hub"><b><svg class="ic"><use href="#i-box"/></svg>Единый каталог + ИИ-сотрудник</b><span>товары редактируются в одном месте · ИИ знает цены, наличие и фото · консультирует и оформляет заказ в чате</span></div>
+    </div>
+    <div class="farr one"><i><svg class="ic"><use href="#i-arrow"/></svg></i></div>
+    <div class="frow one">
+      <div class="fnode"><b><svg class="ic"><use href="#i-truck"/></svg>Доставка</b><span>Яндекс Доставка по России · отправки в страны Азии и Ближнего Востока</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ВИТРИНА ================= -->
+<section class="section wrap" id="shop">
+  <div class="section-head">
+    <p class="eyebrow">Веб-витрина</p>
+    <h2>Каталог вместо ленты канала. <span class="muted">С ценами, наличием и корзиной.</span></h2>
+    <p class="section-lead">Сейчас товары живут в постах, а цену спрашивают в личке. На витрине у каждого товара своя карточка: фото, цена, наличие. Ссылку на товар можно отправить клиенту или поставить в рекламу.</p>
+  </div>
+
+  <div class="browser" role="img" aria-label="Макет веб-витрины с карточками товаров">
+    <div class="bbar"><i></i><i></i><i></i><span class="burl">annurvita.shop</span></div>
+    <div class="shop">
+      <div class="shop-top">
+        <span class="shop-brand"><svg class="ic"><use href="#i-leaf"/></svg>Annur.Vita</span>
+        <span class="shop-search"><svg class="ic"><use href="#i-search"/></svg>Найти товар…</span>
+        <span class="shop-cart"><svg class="ic"><use href="#i-cart"/></svg>Корзина · 3</span>
+      </div>
+      <div class="shop-cats"><span class="on">Все товары</span><span>Кремы и бальзамы</span><span>Масла</span><span>БАДы</span><span>Для массажа</span></div>
+      <div class="pgrid">
+        <article class="pcard">
+          <div class="pimg g1"><svg class="ic"><use href="#i-jar"/></svg></div>
+          <div class="pbody"><span class="pbrand">Al Helal · Саудовская Аравия</span><span class="pname">Крем со страусиным жиром</span><span class="pmeta">40 мл</span><div class="prow"><span class="price">950 ₽</span><span class="stock ok">В наличии</span></div></div>
+        </article>
+        <article class="pcard">
+          <div class="pimg g2"><svg class="ic"><use href="#i-tube"/></svg></div>
+          <div class="pbody"><span class="pbrand">Al Helal · Саудовская Аравия</span><span class="pname">Black Seed Massage Rub, чёрный тмин</span><span class="pmeta">80 г</span><div class="prow"><span class="price">1 150 ₽</span><span class="stock ok">В наличии</span></div></div>
+        </article>
+        <article class="pcard">
+          <div class="pimg g3"><svg class="ic"><use href="#i-jar"/></svg></div>
+          <div class="pbody"><span class="pbrand">Healing Oasis</span><span class="pname">Ostrich Fat Massage Cream</span><span class="pmeta">150 мл</span><div class="prow"><span class="price">1 450 ₽</span><span class="stock ok">В наличии</span></div></div>
+        </article>
+        <article class="pcard">
+          <div class="pimg g4"><svg class="ic"><use href="#i-tube"/></svg></div>
+          <div class="pbody"><span class="pbrand">Al Helal · Саудовская Аравия</span><span class="pname">Hanzal Body Massage Cream</span><span class="pmeta">40 мл · экстракт ханзала</span><div class="prow"><span class="price">890 ₽</span><span class="stock low">Осталось 2</span></div></div>
+        </article>
+        <article class="pcard">
+          <div class="pimg g5"><svg class="ic"><use href="#i-tin"/></svg></div>
+          <div class="pbody"><span class="pbrand">Tiger Cloud · Таиланд</span><span class="pname">Бальзам белый, охлаждающий</span><span class="pmeta">19 г</span><div class="prow"><span class="price">390 ₽</span><span class="stock ok">В наличии</span></div></div>
+        </article>
+        <article class="pcard">
+          <div class="pimg g6"><svg class="ic"><use href="#i-tin"/></svg></div>
+          <div class="pbody"><span class="pbrand">Tiger Cloud · Таиланд</span><span class="pname">Бальзам красный, согревающий</span><span class="pmeta">19 г</span><div class="prow"><span class="price">390 ₽</span><span class="stock out">Под заказ</span></div></div>
+        </article>
+      </div>
+      <div class="shopcap">
+        <div><b>Наличие видно сразу</b>«В наличии», «осталось 2», «под заказ» — клиент не ждёт ответа в личке.</div>
+        <div><b>Ссылка на каждый товар</b>Отправляете клиенту или ставите в рекламу — он попадает прямо на карточку.</div>
+        <div><b>Кнопка «Спросить»</b>С любой карточки клиент уходит в чат с ИИ-сотрудником — уже с товаром в контексте.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TELEGRAM MINI APP ================= -->
+<section class="section wrap split" id="tg">
+  <div>
+    <div class="section-head">
+      <p class="eyebrow">Telegram Mini App</p>
+      <h2>Тот же магазин — <span class="muted">внутри Telegram.</span></h2>
+      <p class="section-lead">Подписчики канала открывают каталог кнопкой, не выходя из Telegram. Корзина, оформление, уведомления — всё там, где клиент уже сидит.</p>
+    </div>
+    <ul class="points">
+      <li><svg class="ic"><use href="#i-check"/></svg><b>Ничего не устанавливается.</b> Mini App открывается из канала, из чата с ИИ-сотрудником или по ссылке из рекламы.</li>
+      <li><svg class="ic"><use href="#i-check"/></svg><b>Каталог общий с сайтом.</b> Поменяли цену в админке — поменялась и на сайте, и в Telegram.</li>
+      <li><svg class="ic"><use href="#i-check"/></svg><b>Чат в одном касании.</b> Вопрос по товару — и клиент уже пишет ИИ-сотруднику, карточка подставляется сама.</li>
+    </ul>
+  </div>
+  <div class="split-visual">
+    <div class="phone small">
+      <div class="ma">
+        <div class="ma-head">
+          <svg class="ic"><use href="#i-x"/></svg>
+          <div><b>Annur.Vita · Магазин</b><small>мини-приложение</small></div>
+        </div>
+        <div class="ma-cats"><span class="on">Все</span><span>Кремы</span><span>Бальзамы</span><span>Масла</span></div>
+        <div class="ma-grid">
+          <article class="ma-card"><div class="pimg g1"><svg class="ic"><use href="#i-jar"/></svg></div><div class="mb"><b>Крем Al Helal, страусиный жир</b><small>40 мл</small><div class="mr"><b>950 ₽</b><span class="ma-add"><svg class="ic"><use href="#i-plus"/></svg></span></div></div></article>
+          <article class="ma-card"><div class="pimg g2"><svg class="ic"><use href="#i-tube"/></svg></div><div class="mb"><b>Black Seed Rub</b><small>80 г</small><div class="mr"><b>1 150 ₽</b><span class="ma-add"><svg class="ic"><use href="#i-plus"/></svg></span></div></div></article>
+          <article class="ma-card"><div class="pimg g5"><svg class="ic"><use href="#i-tin"/></svg></div><div class="mb"><b>Tiger Cloud белый</b><small>19 г</small><div class="mr"><b>390 ₽</b><span class="ma-add"><svg class="ic"><use href="#i-plus"/></svg></span></div></div></article>
+          <article class="ma-card"><div class="pimg g3"><svg class="ic"><use href="#i-jar"/></svg></div><div class="mb"><b>Ostrich Fat Cream</b><small>150 мл</small><div class="mr"><b>1 450 ₽</b><span class="ma-add"><svg class="ic"><use href="#i-plus"/></svg></span></div></div></article>
+        </div>
+        <div class="ma-cart"><span><svg class="ic"><use href="#i-cart"/></svg></span>Корзина · 2 товара<b>2 290 ₽</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ИИ-СОТРУДНИК ================= -->
+<section class="section wrap" id="ai">
+  <div class="section-head">
+    <p class="eyebrow">ИИ-сотрудник</p>
+    <h2>Отвечает как живой менеджер. <span class="muted">Только не спит и не теряет заказы.</span></h2>
+    <p class="section-lead">Это не бот с кнопками. ИИ-сотрудник подключён к каталогу: знает каждый товар, состав, цену и наличие, может прислать фото. Он консультирует, собирает заказ до конца и говорит только то, что заложено в каталоге — без выдумок.</p>
+  </div>
+  <div class="split">
+    <div class="split-visual">
+      <div class="phone small">
+        <div class="cab">
+          <div class="thread-head"><svg class="ic"><use href="#i-back"/></svg><span class="ava">Г</span><div><b>Гульнара</b><small class="ok">Отвечает ИИ-сотрудник</small></div><label class="switch"><i></i>Сам</label></div>
+          <div class="thread">
+            <div class="day">Сегодня</div>
+            <div class="bub c"><small>Клиент</small>А этот крем от чего вообще? Для суставов подойдёт?</div>
+            <div class="bub b"><small>ИИ-сотрудник</small>Крем Al Helal на страусином жире используют для массажа при дискомфорте в мышцах и суставах. Не является лекарственным средством. Прислать фото и состав?</div>
+            <div class="bub c"><small>Клиент</small>Да, и есть ли что-то посильнее разогревающее?</div>
+            <div class="bub b"><small>ИИ-сотрудник</small>Из согревающих — красный Tiger Cloud, 390 ₽. Сейчас под заказ, привезём за 7–10 дней. Оформить?</div>
+            <div class="sys">Создан заказ №109 · ждёт вашего подтверждения</div>
+          </div>
+          <div class="thread-input"><span>Написать клиенту</span><svg class="ic"><use href="#i-send"/></svg></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <ul class="points">
+        <li><svg class="ic"><use href="#i-clock"/></svg><b>Работает 24/7 в обоих каналах.</b> Отвечает за секунды и в Telegram, и в чате на сайте — одним и тем же голосом вашего магазина.</li>
+        <li><svg class="ic"><use href="#i-box"/></svg><b>Подключён к каталогу.</b> Цены, наличие, описания и фотографии берёт из карточек товара — обновили карточку, обновились и ответы.</li>
+        <li><svg class="ic"><use href="#i-user"/></svg><b>Человек всегда выше.</b> Не знает ответа — зовёт вас и ставит разговор на паузу. Один переключатель — и вы пишете клиенту сами.</li>
+        <li><svg class="ic"><use href="#i-chart"/></svg><b>Переписки не пропадают.</b> Разговоры суммируются: что спрашивают, чего не хватает в каталоге, на чём теряются заказы. Аналитика — отдельным разговором.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= АДМИНКА ================= -->
+<section class="section wrap" id="admin">
+  <div class="section-head">
+    <p class="eyebrow">Админка</p>
+    <h2>Товар добавляется один раз. <span class="muted">Появляется везде.</span></h2>
+    <p class="section-lead">Фото, название, цена, наличие — и товар уже на сайте, в Telegram Mini App и в «голове» ИИ-сотрудника. Без программиста и без дублирования постов.</p>
+  </div>
+  <div class="browser" role="img" aria-label="Макет админки: список товаров и форма нового товара">
+    <div class="bbar"><i></i><i></i><i></i><span class="burl">annurvita.shop/admin</span></div>
+    <div class="admin">
+      <div class="alist">
+        <h4>Товары · 14 <span class="ubtn dark"><svg class="ic"><use href="#i-plus"/></svg>Новый товар</span></h4>
+        <div class="arow on"><span class="athumb g1"><svg class="ic"><use href="#i-jar"/></svg></span><div><b>Крем Al Helal, страусиный жир</b><small>40 мл · 950 ₽</small></div><span class="stock ok">В наличии</span></div>
+        <div class="arow"><span class="athumb g2"><svg class="ic"><use href="#i-tube"/></svg></span><div><b>Black Seed Massage Rub</b><small>80 г · 1 150 ₽</small></div><span class="stock ok">В наличии</span></div>
+        <div class="arow"><span class="athumb g4"><svg class="ic"><use href="#i-tube"/></svg></span><div><b>Hanzal Body Massage Cream</b><small>40 мл · 890 ₽</small></div><span class="stock low">Осталось 2</span></div>
+        <div class="arow"><span class="athumb g6"><svg class="ic"><use href="#i-tin"/></svg></span><div><b>Tiger Cloud красный</b><small>19 г · 390 ₽</small></div><span class="stock out">Под заказ</span></div>
+        <div class="arow"><span class="athumb g5"><svg class="ic"><use href="#i-tin"/></svg></span><div><b>Tiger Cloud белый</b><small>19 г · 390 ₽</small></div><span class="stock ok">В наличии</span></div>
+      </div>
+      <div class="aform">
+        <h4>Карточка товара</h4>
+        <div class="field"><label>Фотографии</label><div class="drop"><span class="mini g1"><svg class="ic"><use href="#i-jar"/></svg></span><svg class="ic"><use href="#i-image"/></svg>Перетащите фото или нажмите, чтобы выбрать</div></div>
+        <div class="field"><label>Название</label><div class="in">Крем со страусиным жиром, Al Helal</div></div>
+        <div class="f2">
+          <div class="field"><label>Цена</label><div class="in">950 ₽</div></div>
+          <div class="field"><label>Наличие</label><div class="in">12 шт · В наличии</div></div>
+        </div>
+        <div class="field"><label>Описание — его же использует ИИ-сотрудник</label><div class="in area">Крем для массажа на основе страусиного жира. Производство: Саудовская Аравия. Объём 40 мл. Не является лекарственным средством.</div></div>
+        <div class="pub"><label class="switch"><i></i></label><span>Показывать на сайте и в Telegram</span></div>
+        <span class="ubtn dark"><svg class="ic"><use href="#i-check"/></svg>Сохранить и опубликовать</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= СТАТУСЫ ================= -->
+<section class="section wrap" id="status">
+  <div class="section-head">
+    <p class="eyebrow">Путь заказа</p>
+    <h2>Клиент всегда знает, где его заказ. <span class="muted">Сам, без вопросов в личку.</span></h2>
+    <p class="section-lead">У каждого заказа есть статус, и на каждом шаге клиент получает сообщение в Telegram автоматически. «А где мой заказ?» перестаёт быть вашей работой.</p>
+  </div>
+  <ol class="timeline">
+    <li><h3>Оформлен</h3><p>ИИ-сотрудник собрал заказ, вы подтвердили одной кнопкой.</p><div class="tl-msg">Ваш заказ №108 подтверждён. Собираем к отправке.</div></li>
+    <li><h3>Передан в доставку</h3><p>Вызвали курьера или отправили посылку — трек подставился в заказ.</p><div class="tl-msg">Заказ №108 у курьера Яндекс Доставки. Приедет завтра до 18:00.</div></li>
+    <li><h3>В пути</h3><p>Для международных отправок — статус по треку, клиенту ничего не надо спрашивать.</p><div class="tl-msg">Посылка в пути: прошла таможню, ожидаем в Дубае 8–9 ноября.</div></li>
+    <li><h3>Доставлен</h3><p>Заказ закрыт, клиент в базе. Через время можно напомнить о повторной покупке.</p><div class="tl-msg">Заказ доставлен. Будем рады отзыву! Что-нибудь подсказать ещё?</div></li>
+  </ol>
+</section>
+
+<!-- ================= ДОСТАВКА ================= -->
+<section class="section wrap" id="delivery">
+  <div class="section-head">
+    <p class="eyebrow">Доставка</p>
+    <h2>От соседней улицы <span class="muted">до Ближнего Востока.</span></h2>
+  </div>
+  <div class="tiles two">
+    <article>
+      <h3><svg class="ic"><use href="#i-truck"/></svg>По городу и России — Яндекс Доставка</h3>
+      <p>ИИ-сотрудник сам считает стоимость по адресу, называет срок и оформляет вызов курьера. Клиенту приходит трек, статусы обновляются автоматически.</p>
+      <div class="geo"><span>Сегодня-завтра по городу</span><span>СДЭК и почта — по России</span><span>Оплата онлайн или при получении</span></div>
+    </article>
+    <article>
+      <h3><svg class="ic"><use href="#i-plane"/></svg>Азия и Ближний Восток</h3>
+      <p>Для заказов из других стран — отправка почтой или карго-службами. ИИ-сотрудник подсказывает сроки и стоимость по стране и ведёт клиента по статусам на его языке — русском, английском или арабском.</p>
+      <div class="geo"><span>ОАЭ</span><span>Саудовская Аравия</span><span>Турция</span><span>Казахстан</span><span>Узбекистан</span><span>Малайзия</span><span>Индонезия</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= ПОД КАПОТОМ ================= -->
+<section class="hood" id="hood">
+  <div class="wrap">
+    <div class="hood-grid">
+      <div>
+        <p class="eyebrow"><i></i>Под капотом</p>
+        <h2>Это не конструктор сайтов. <span>Это система, которая растёт с магазином.</span></h2>
+        <p class="hood-lead">Каждый товар, заказ, клиент и переписка — запись в учётной системе, а не сообщение в чате. Поэтому ничего не теряется, всё можно посчитать, а когда понадобятся склад, закупки или вторая точка — они уже на месте.</p>
+      </div>
+      <ul class="chips">
+        <li><b>Единый каталог</b><span>Сайт, Telegram и ИИ-сотрудник читают одни данные</span></li>
+        <li><b>Статусы товара</b><span>В наличии · оформляется · в доставке · доставлен</span></li>
+        <li><b>История и аналитика</b><span>Переписки суммируются — видно спрос и узкие места</span></li>
+        <li><b>Клиентская база</b><span>Кто, что и когда покупал — для повторных продаж</span></li>
+        <li><b>Пауза и перехват</b><span>Человек всегда может забрать разговор себе</span></li>
+        <li><b>24/7</b><span>ИИ-сотрудник не спит и не уходит в отпуск</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section wrap faq" id="faq">
+  <div class="section-head">
+    <p class="eyebrow">Вопросы</p>
+    <h2>Разложим <span class="muted">по полочкам.</span></h2>
+  </div>
+  <div class="qa">
+    <details open>
+      <summary>Что будет, если ИИ-сотрудник не знает ответа?<span>+</span></summary>
+      <p>Он не выдумывает. Скажет клиенту, что уточнит, поставит разговор на паузу и покажет вам чат с пометкой «ждёт вас». Вы отвечаете — он продолжает.</p>
+    </details>
+    <details>
+      <summary>Как добавлять товары? Нужен программист?<span>+</span></summary>
+      <p>Нет. В админке: фото, название, цена, наличие — и товар на сайте, в Telegram и у ИИ-сотрудника. Как пост в канале, только один раз и со статусами.</p>
+    </details>
+    <details>
+      <summary>Можно начать только с Telegram, без сайта?<span>+</span></summary>
+      <p>Да. Каталог один, поэтому включить вторую витрину можно в любой момент — товары переносить не придётся.</p>
+    </details>
+    <details>
+      <summary>А если клиент пишет на арабском или английском?<span>+</span></summary>
+      <p>ИИ-сотрудник отвечает на языке клиента. Каталог при этом ведёте на одном языке — переводит он сам.</p>
+    </details>
+    <details>
+      <summary>Сколько стоит?<span>+</span></summary>
+      <p>Зависит от объёма каталога и доставки. Напишите в Telegram — за один разговор посчитаем и покажем живой пример системы.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact wrap" id="contact">
+  <p class="eyebrow"><i></i>Начнём с разговора</p>
+  <h2>Напишите в Telegram. <span>Покажем живую систему и соберём план под ваш каталог.</span></h2>
+  <a class="btn btn-accent btn-lg" href="https://t.me/NoGodBut1" target="_blank" rel="noopener"><svg class="ic"><use href="#i-send"/></svg>@NoGodBut1</a>
+  <p class="footnote">Отвечаем лично. Этот сайт — прототип: товары из вашего канала, цены и сроки условные.</p>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <a class="brand" href="#top"><svg class="ic"><use href="#i-leaf"/></svg>Annur.Vita</a>
+  <p>Прототип подготовлен Habibi — цифровые сотрудники и ERP для малого бизнеса.</p>
+  <small>© 2026 Habibi</small>
+</footer>
+</body>
+</html>
